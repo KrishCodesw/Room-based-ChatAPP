@@ -1,0 +1,53 @@
+
+import { useEffect,useState } from 'react'
+import './App.css'
+import JoinRoom from './components/JoinRoom';
+function App() {
+
+
+const [messages, setmessages] = useState(["Hi!!"])
+
+ function sendmessage(){
+
+ }
+
+
+ useEffect(()=>{
+  const ws=new WebSocket("ws://localhost:8080");
+  ws.onmessage=(e)=>{
+    console.log(e.data);
+    setmessages(m=>[...m,e.data])
+    
+  }
+ },[])
+
+  return (
+    <>
+     <JoinRoom onJoin={handleJoin}/>
+     <div className='h-screen bg-black'>
+      <div className="h-[80vh]">
+        {/* {messages.map(messages=><div>{messages}</div>)} */}
+        {
+          messages.map((message,idx)=>(
+            <div key={idx} className='text-white font-bold text-lg p-4 '>
+              <span className='text-blue-200  font-bold text-lg p-2 w-full rounded-md bg-blue-800'>
+{message}
+              </span>
+              
+            </div>
+          ))
+        }
+
+
+
+      </div>
+      <div className="flex">
+     <input className='bg-white w-[90vw] border-none rounded-md p-1 m-5' type="text" name="" placeholder="Message..." id="" />
+    <button className='bg-white w-[10vw] border-none rounded-md h-10 mt-4 ' onClick={sendmessage}>Send message </button>
+    </div>
+    </div>
+    </>
+  )
+}
+
+export default App
