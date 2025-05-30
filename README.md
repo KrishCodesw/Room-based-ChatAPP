@@ -51,8 +51,12 @@ npm install
 
 ```bash
 cd ws
+npm install
 npm run dev
+
+
 cd ws-fe
+npm install 
 npm run dev
 ```
 
