@@ -142,6 +142,7 @@ Pull requests and suggestions are welcomed ! For major changes, please open an i
 ##  Learning
 
 If you want to learn how websockets work this might be the best resource just understand how 3 files work , 1st the index.ts in the ws/src folder , 2nd the App.tsx in the ws-fe folder and lastly the 
+JoinRoom.tsx in the ws-fe/src/components folder.
 
 ---
 
